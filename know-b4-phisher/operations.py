@@ -26,8 +26,6 @@ class KnowB4PhishER:
     def api_request(self, method="POST", data=None):
         try:
             headers = {"Authorization": f"Bearer {self.api_key}"}
-            logger.error(f"\n-----------req-------------\n{method} - {self.url}\nheaders: {headers}\ndata: {data}")
-            return {}
             response = request(method, self.url, headers=headers, data=data, verify=self.verify_ssl)
 
             if response.ok:

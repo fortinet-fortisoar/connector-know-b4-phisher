@@ -22,7 +22,7 @@
         "visible": true,
         "editable": true,
         "required": true,
-        "value": "https://eu.knowbe4.com/graphql"
+        "placeholder": "https://eu.knowbe4.com/graphql"
       },
       {
         "name": "api_key",
