@@ -26,6 +26,11 @@ class KnowB4PhishER:
     def api_request(self, method="POST", data=None):
         try:
             headers = {"Authorization": f"Bearer {self.api_key}"}
+            try:
+                from connectors.debug_utils.curl_script import make_curl
+                make_curl(method, self.url, headers=headers, data=data, verify_ssl=self.verify_ssl)
+            except Exception:
+                pass
             response = request(method, self.url, headers=headers, data=data, verify=self.verify_ssl)
 
             if response.ok:
