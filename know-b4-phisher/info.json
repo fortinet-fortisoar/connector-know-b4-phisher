@@ -122,8 +122,8 @@
           "title": "Message ID",
           "name": "id",
           "type": "text",
-          "description": "Specify the message ID of the message that you want to update.",
-          "tooltip": "Specify the message ID of the message that you want to update.",
+          "description": "Specify the ID of the message that you want to update.",
+          "tooltip": "Specify the ID of the message that you want to update.",
           "required": true,
           "visible": true,
           "editable": true

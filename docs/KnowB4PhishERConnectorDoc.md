@@ -55,7 +55,7 @@ The following automated operations can be included in playbooks and you can also
  The output contains a non-dictionary value.
 ### operation: Update Message
 #### Input parameters
-<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Message ID</td><td>Specify the message ID of the message that you want to update.
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Message ID</td><td>Specify the ID of the message that you want to update.
 </td></tr><tr><td>Category</td><td>Specify the category of the message that you want to update.
 </td></tr><tr><td>Status</td><td>Specify the status of the message that you want to update.
 </td></tr><tr><td>Severity</td><td>Specify the severity of the message that you want to update.
