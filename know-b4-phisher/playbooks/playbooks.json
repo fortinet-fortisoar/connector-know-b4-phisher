@@ -2,16 +2,16 @@
   "type": "workflow_collections",
   "data": [
     {
-      "uuid": "ca91cee3-b39f-428a-9a43-8d119e4358ad",
+      "uuid": "29c4e7bf-8085-4156-9a72-7d3a1a9907c9",
       "@type": "WorkflowCollection",
       "workflows": [
         {
           "@type": "Workflow",
-          "uuid": "6cbefdc2-74f1-42be-97b6-eb013faeb46a",
-          "collection": "/api/3/workflow_collections/ca91cee3-b39f-428a-9a43-8d119e4358ad",
+          "uuid": "2b4b57cd-21d9-4201-8e3a-6dc442d6a361",
+          "collection": "/api/3/workflow_collections/29c4e7bf-8085-4156-9a72-7d3a1a9907c9",
           "steps": [
             {
-              "uuid": "5b7fec42-ec8b-4e31-96d6-b5cd671d42f6",
+              "uuid": "af5ffdfc-a512-4997-a0e9-2be2521f2fa4",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
@@ -28,7 +28,7 @@
               "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
             },
             {
-              "uuid": "ecdadab0-1f57-43e1-a894-1c70bf8ee8c9",
+              "uuid": "0d16af44-2f24-469c-bedf-8006944c8841",
               "@type": "WorkflowStep",
               "name": "Get Messages",
               "description": null,
@@ -38,12 +38,11 @@
                 "config": "''",
                 "params": {
                   "query": "",
-                  "id": "",
                   "all": "",
                   "page": "",
                   "per": ""
                 },
-                "version": "1.0.0",
+                "version": "1.0.1",
                 "connector": "know-b4-phisher",
                 "operation": "get_message_list",
                 "operationTitle": "Get Messages"
@@ -66,26 +65,26 @@
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/5b7fec42-ec8b-4e31-96d6-b5cd671d42f6",
+          "triggerStep": "/api/3/workflow_steps/af5ffdfc-a512-4997-a0e9-2be2521f2fa4",
           "routes": [
             {
-              "uuid": "35a4df4b-a3d3-4f3a-8ce9-695f055b09ca",
+              "uuid": "1d44343e-9f7c-4fb4-a56e-0ef1dc69374a",
               "@type": "WorkflowRoute",
               "label": null,
               "isExecuted": false,
               "name": "Start-> Get Messages",
-              "sourceStep": "/api/3/workflow_steps/5b7fec42-ec8b-4e31-96d6-b5cd671d42f6",
-              "targetStep": "/api/3/workflow_steps/ecdadab0-1f57-43e1-a894-1c70bf8ee8c9"
+              "sourceStep": "/api/3/workflow_steps/af5ffdfc-a512-4997-a0e9-2be2521f2fa4",
+              "targetStep": "/api/3/workflow_steps/0d16af44-2f24-469c-bedf-8006944c8841"
             }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "e69abe19-1b85-49d4-80db-de9192dcc047",
-          "collection": "/api/3/workflow_collections/ca91cee3-b39f-428a-9a43-8d119e4358ad",
+          "uuid": "c27e483b-e33e-4abd-837e-63a230db3468",
+          "collection": "/api/3/workflow_collections/29c4e7bf-8085-4156-9a72-7d3a1a9907c9",
           "steps": [
             {
-              "uuid": "3b46d040-3ec3-4409-98d1-9e8303ba4ab7",
+              "uuid": "125cc56c-6e35-4c62-a8af-96a74f9de609",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
@@ -102,7 +101,77 @@
               "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
             },
             {
-              "uuid": "fa31ee6b-5a50-4a9b-8363-f1c552afc8c4",
+              "uuid": "7d6029bd-8787-4092-bf79-041f0c60d140",
+              "@type": "WorkflowStep",
+              "name": "Get Message by ID",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "KnowB4 PhishER",
+                "config": "''",
+                "params": {
+                  "id": ""
+                },
+                "version": "1.0.1",
+                "connector": "know-b4-phisher",
+                "operation": "get_message_by_id",
+                "operationTitle": "Get Message by ID"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Get message details based on the message ID that you have specified.",
+          "name": "Get Message by ID",
+          "tag": "#KnowB4 PhishER",
+          "recordTags": [
+            "Know",
+            "know-b4-phisher"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/125cc56c-6e35-4c62-a8af-96a74f9de609",
+          "routes": [
+            {
+              "uuid": "4e8e980b-0d4b-4fa4-9b2b-40e3b26d7abd",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Message by ID",
+              "sourceStep": "/api/3/workflow_steps/125cc56c-6e35-4c62-a8af-96a74f9de609",
+              "targetStep": "/api/3/workflow_steps/7d6029bd-8787-4092-bf79-041f0c60d140"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "00814122-6741-4a2e-aaff-2d035e995578",
+          "collection": "/api/3/workflow_collections/29c4e7bf-8085-4156-9a72-7d3a1a9907c9",
+          "steps": [
+            {
+              "uuid": "c58352d1-fd75-423e-89a0-2dd8ed01ef8e",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "8b2128ab-45d4-4557-acbe-a6122bb5c4aa",
               "@type": "WorkflowStep",
               "name": "Update Message",
               "description": null,
@@ -116,7 +185,7 @@
                   "status": "",
                   "severity": ""
                 },
-                "version": "1.0.0",
+                "version": "1.0.1",
                 "connector": "know-b4-phisher",
                 "operation": "update_message",
                 "operationTitle": "Update Message"
@@ -139,26 +208,26 @@
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/3b46d040-3ec3-4409-98d1-9e8303ba4ab7",
+          "triggerStep": "/api/3/workflow_steps/c58352d1-fd75-423e-89a0-2dd8ed01ef8e",
           "routes": [
             {
-              "uuid": "00db87ae-a348-42ea-a18e-91ef29796c1b",
+              "uuid": "fe5cb7db-161b-41ff-8b53-e7fc554c14e5",
               "@type": "WorkflowRoute",
               "label": null,
               "isExecuted": false,
               "name": "Start-> Update Message",
-              "sourceStep": "/api/3/workflow_steps/3b46d040-3ec3-4409-98d1-9e8303ba4ab7",
-              "targetStep": "/api/3/workflow_steps/fa31ee6b-5a50-4a9b-8363-f1c552afc8c4"
+              "sourceStep": "/api/3/workflow_steps/c58352d1-fd75-423e-89a0-2dd8ed01ef8e",
+              "targetStep": "/api/3/workflow_steps/8b2128ab-45d4-4557-acbe-a6122bb5c4aa"
             }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "e3362864-0885-452c-bab0-f2420437c865",
-          "collection": "/api/3/workflow_collections/ca91cee3-b39f-428a-9a43-8d119e4358ad",
+          "uuid": "b1f3f8cd-72c8-4435-addd-8ac621bc6cb0",
+          "collection": "/api/3/workflow_collections/29c4e7bf-8085-4156-9a72-7d3a1a9907c9",
           "steps": [
             {
-              "uuid": "291974ae-2a61-495e-b3d0-6d4b4eb0117d",
+              "uuid": "6477cb11-2b3e-4aa0-b86a-3f5c96b8b61f",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
@@ -175,7 +244,7 @@
               "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
             },
             {
-              "uuid": "f763da19-b3ba-4d2d-9927-a32cc48feace",
+              "uuid": "4396fc17-3967-46fc-8a04-d1a81d966e4b",
               "@type": "WorkflowStep",
               "name": "Add Comment",
               "description": null,
@@ -187,7 +256,7 @@
                   "id": "",
                   "comment": ""
                 },
-                "version": "1.0.0",
+                "version": "1.0.1",
                 "connector": "know-b4-phisher",
                 "operation": "add_comment",
                 "operationTitle": "Add Comment"
@@ -210,26 +279,26 @@
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/291974ae-2a61-495e-b3d0-6d4b4eb0117d",
+          "triggerStep": "/api/3/workflow_steps/6477cb11-2b3e-4aa0-b86a-3f5c96b8b61f",
           "routes": [
             {
-              "uuid": "d1f839aa-0edd-4a33-85f9-88b77f2bffad",
+              "uuid": "b0deb417-d13a-48e6-bea4-9492d3e899e8",
               "@type": "WorkflowRoute",
               "label": null,
               "isExecuted": false,
               "name": "Start-> Add Comment",
-              "sourceStep": "/api/3/workflow_steps/291974ae-2a61-495e-b3d0-6d4b4eb0117d",
-              "targetStep": "/api/3/workflow_steps/f763da19-b3ba-4d2d-9927-a32cc48feace"
+              "sourceStep": "/api/3/workflow_steps/6477cb11-2b3e-4aa0-b86a-3f5c96b8b61f",
+              "targetStep": "/api/3/workflow_steps/4396fc17-3967-46fc-8a04-d1a81d966e4b"
             }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "eb04358f-0654-4085-b3c6-8659b38a2f0d",
-          "collection": "/api/3/workflow_collections/ca91cee3-b39f-428a-9a43-8d119e4358ad",
+          "uuid": "7e08dd90-81f3-4721-8fe2-9ce4acf02e92",
+          "collection": "/api/3/workflow_collections/29c4e7bf-8085-4156-9a72-7d3a1a9907c9",
           "steps": [
             {
-              "uuid": "b3f85361-3fda-414d-a8f9-34863582dfcc",
+              "uuid": "00e46c3c-37e8-489b-bcbb-b28dbc1fce0c",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
@@ -246,7 +315,7 @@
               "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
             },
             {
-              "uuid": "4deef1e0-7857-457b-81a2-5103e3d34acc",
+              "uuid": "4eba3885-c798-49e6-9c3f-04e31ee7e194",
               "@type": "WorkflowStep",
               "name": "Add Tags",
               "description": null,
@@ -258,7 +327,7 @@
                   "id": "",
                   "tags": ""
                 },
-                "version": "1.0.0",
+                "version": "1.0.1",
                 "connector": "know-b4-phisher",
                 "operation": "add_tags",
                 "operationTitle": "Add Tags"
@@ -281,26 +350,26 @@
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/b3f85361-3fda-414d-a8f9-34863582dfcc",
+          "triggerStep": "/api/3/workflow_steps/00e46c3c-37e8-489b-bcbb-b28dbc1fce0c",
           "routes": [
             {
-              "uuid": "66d2030e-c038-4ab8-b14e-0cbb62de21e7",
+              "uuid": "f5156023-5b97-4dd1-a977-d54cef324e23",
               "@type": "WorkflowRoute",
               "label": null,
               "isExecuted": false,
               "name": "Start-> Add Tags",
-              "sourceStep": "/api/3/workflow_steps/b3f85361-3fda-414d-a8f9-34863582dfcc",
-              "targetStep": "/api/3/workflow_steps/4deef1e0-7857-457b-81a2-5103e3d34acc"
+              "sourceStep": "/api/3/workflow_steps/00e46c3c-37e8-489b-bcbb-b28dbc1fce0c",
+              "targetStep": "/api/3/workflow_steps/4eba3885-c798-49e6-9c3f-04e31ee7e194"
             }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "cdb08bf6-e439-4730-bca6-2246b0cc9232",
-          "collection": "/api/3/workflow_collections/ca91cee3-b39f-428a-9a43-8d119e4358ad",
+          "uuid": "ca13e730-6cf1-42f2-b07f-ead3799c6a8d",
+          "collection": "/api/3/workflow_collections/29c4e7bf-8085-4156-9a72-7d3a1a9907c9",
           "steps": [
             {
-              "uuid": "f8bde402-989b-416e-a7a3-214771da5c25",
+              "uuid": "ab35f5e6-1251-4aa2-bf1f-046b58fae9ea",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
@@ -317,7 +386,7 @@
               "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
             },
             {
-              "uuid": "9deaee97-336f-402a-9ff0-d5123615ba10",
+              "uuid": "e7935140-dd2a-4c3f-81af-8c73b1debbd0",
               "@type": "WorkflowStep",
               "name": "Remove Tags",
               "description": null,
@@ -329,7 +398,7 @@
                   "id": "",
                   "tags": ""
                 },
-                "version": "1.0.0",
+                "version": "1.0.1",
                 "connector": "know-b4-phisher",
                 "operation": "remove_tags",
                 "operationTitle": "Remove Tags"
@@ -352,21 +421,21 @@
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/f8bde402-989b-416e-a7a3-214771da5c25",
+          "triggerStep": "/api/3/workflow_steps/ab35f5e6-1251-4aa2-bf1f-046b58fae9ea",
           "routes": [
             {
-              "uuid": "66e60186-7316-4daf-9856-6f21eabcf89f",
+              "uuid": "eed7576b-0800-49c4-b8aa-50d41dd0410f",
               "@type": "WorkflowRoute",
               "label": null,
               "isExecuted": false,
               "name": "Start-> Remove Tags",
-              "sourceStep": "/api/3/workflow_steps/f8bde402-989b-416e-a7a3-214771da5c25",
-              "targetStep": "/api/3/workflow_steps/9deaee97-336f-402a-9ff0-d5123615ba10"
+              "sourceStep": "/api/3/workflow_steps/ab35f5e6-1251-4aa2-bf1f-046b58fae9ea",
+              "targetStep": "/api/3/workflow_steps/e7935140-dd2a-4c3f-81af-8c73b1debbd0"
             }
           ]
         }
       ],
-      "name": "Sample - KnowB4 PhishER - 1.0.0",
+      "name": "Sample - KnowB4 PhishER - 1.0.1",
       "description": "KnowB4 PhishER helps your InfoSec and Security Operations team cut through the inbox noise and respond to the most dangerous threats more quickly.",
       "visible": true,
       "recordTags": [

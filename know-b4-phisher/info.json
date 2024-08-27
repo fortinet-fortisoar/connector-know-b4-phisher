@@ -1,13 +1,13 @@
 {
   "name": "know-b4-phisher",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "label": "KnowB4 PhishER",
   "category": "Email Security",
   "description": "KnowB4 PhishER helps your InfoSec and Security Operations team cut through the inbox noise and respond to the most dangerous threats more quickly.",
   "publisher": "Fortinet",
-  "cs_approved": false,
+  "cs_approved": true,
   "cs_compatible": true,
-  "help_online": "https://github.com/fortinet-fortisoar/connector-know-b4-phisher/blob/release/1.0.0/docs/KnowB4PhishERConnectorDoc.md",
+  "help_online": "",
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
   "ingestion_supported": false,
@@ -67,16 +67,6 @@
           "editable": true
         },
         {
-          "title": "Message ID",
-          "name": "id",
-          "type": "text",
-          "description": "Specify the message ID to fetch the result.",
-          "tooltip": "Specify the message ID to fetch the result.",
-          "required": false,
-          "visible": true,
-          "editable": true
-        },
-        {
           "title": "Fetch All Records",
           "name": "all",
           "type": "checkbox",
@@ -108,7 +98,141 @@
           "editable": true
         }
       ],
-      "output_schema": {}
+      "output_schema": {
+        "data": {
+          "phisherMessages": {
+            "nodes": [
+              {
+                "id": "",
+                "from": "",
+                "tags": [],
+                "links": [],
+                "rules": [],
+                "events": [
+                  {
+                    "id": "",
+                    "causer": "",
+                    "events": {
+                      "changes": [
+                        {
+                          "to": "",
+                          "from": "",
+                          "name": ""
+                        }
+                      ]
+                    },
+                    "createdAt": "",
+                    "eventType": "",
+                    "triggerer": ""
+                  }
+                ],
+                "rawUrl": "",
+                "headers": [
+                  {
+                    "data": "",
+                    "order": "",
+                    "header": ""
+                  }
+                ],
+                "subject": "",
+                "category": "",
+                "comments": [],
+                "severity": "",
+                "reportedBy": "",
+                "attachments": [],
+                "actionStatus": "",
+                "phishmlReport": {
+                  "confidenceSpam": "",
+                  "confidenceClean": "",
+                  "confidenceThreat": ""
+                },
+                "pipelineStatus": ""
+              }
+            ],
+            "pagination": {
+              "per": "",
+              "page": "",
+              "pages": "",
+              "totalCount": ""
+            }
+          }
+        }
+      }
+    },
+    {
+      "operation": "get_message_by_id",
+      "annotation": "get_message_by_id",
+      "title": "Get Message by ID",
+      "description": "Get message details based on the message ID that you have specified.",
+      "category": "investigation",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Message ID",
+          "name": "id",
+          "type": "text",
+          "description": "Specify the message ID to get the details.",
+          "tooltip":  "Specify the message ID to get the details.",
+          "required": true,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "data": {
+          "phisherMessage": {
+            "actionStatus": "",
+            "attachments": [],
+            "category": "",
+            "comments": [
+              {
+                "body": "",
+                "createdAt": ""
+              }
+            ],
+            "events": [
+              {
+                "causer": "",
+                "createdAt": "",
+                "eventType": "",
+                "events": {
+                  "changes": [
+                    {
+                      "from": "",
+                      "name": "",
+                      "to": ""
+                    }
+                  ]
+                },
+                "id": "",
+                "triggerer": ""
+              }
+            ],
+            "from": "",
+            "headers": [
+              {
+                "data": "",
+                "header": "",
+                "order": ""
+              }
+            ],
+            "id": "",
+            "links": [],
+            "phishmlReport": {
+              "confidenceClean": "",
+              "confidenceSpam": "",
+              "confidenceThreat": ""
+            },
+            "pipelineStatus": "",
+            "rawUrl": "",
+            "reportedBy": "",
+            "rules": [],
+            "severity": "",
+            "subject": "",
+            "tags": []
+          }
+        }
+      }
     },
     {
       "operation": "update_message",
@@ -177,7 +301,19 @@
           "editable": true
         }
       ],
-      "output_schema": {}
+      "output_schema": {
+        "data": {
+          "phisherMessageUpdate": {
+            "errors": "",
+            "node": {
+              "id": "",
+              "category": "",
+              "actionStatus": "",
+              "severity": ""
+            }
+          }
+        }
+      }
     },
     {
       "operation": "add_comment",
@@ -208,7 +344,17 @@
           "editable": true
         }
       ],
-      "output_schema": {}
+      "output_schema": {
+        "data": {
+          "phisherCommentCreate": {
+            "errors": "",
+            "node": {
+              "body": "",
+              "createdAt": ""
+            }
+          }
+        }
+      }
     },
     {
       "operation": "add_tags",
@@ -239,7 +385,19 @@
           "editable": true
         }
       ],
-      "output_schema": {}
+      "output_schema": {
+        "data": {
+          "phisherTagsCreate": {
+            "errors": "",
+            "nodes": [
+              {
+                "name": "",
+                "type": ""
+              }
+            ]
+          }
+        }
+      }
     },
     {
       "operation": "remove_tags",
@@ -270,7 +428,19 @@
           "editable": true
         }
       ],
-      "output_schema": {}
+      "output_schema": {
+        "data": {
+          "phisherTagsDelete": {
+            "errors": "",
+            "nodes": [
+              {
+                "name": "",
+                "type": ""
+              }
+            ]
+          }
+        }
+      }
     }
   ]
 }

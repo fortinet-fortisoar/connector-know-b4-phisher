@@ -25,13 +25,17 @@ class KnowB4PhishER:
 
     def api_request(self, method="POST", data=None):
         try:
-            headers = {"Authorization": f"Bearer {self.api_key}"}
+            headers = {
+                "Authorization": f"Bearer {self.api_key}",
+                "Content-Type": "application/json"
+            }
             try:
                 from connectors.debug_utils.curl_script import make_curl
                 make_curl(method, self.url, headers=headers, data=data, verify_ssl=self.verify_ssl)
             except Exception:
                 pass
             response = request(method, self.url, headers=headers, data=data, verify=self.verify_ssl)
+            logger.info(f"response status code: {response.status_code}")
 
             if response.ok:
                 return response.json()
@@ -59,12 +63,13 @@ class KnowB4PhishER:
             raise ConnectorError(str(err))
 
 
-def create_request_payload(readable_request):
-    format_desc = readable_request.splitlines()
-    final = ""
-    for line in format_desc:
-        final += line + '\\n'
-    return final[:-2]
+def get_params(params):
+    new_params = {}
+    for k, v in params.items():
+        if v is False or v == 0 or v:
+            new_params[k] = v
+    logger.info(f"updated params are: {new_params}")
+    return new_params
 
 
 def convert_to_list(value):
@@ -78,27 +83,26 @@ def convert_to_list(value):
 
 def get_message_list(config, params):
     ob = KnowB4PhishER(config)
+    params = get_params(params)
     query = params.get("query")
-    fetch_all = params.get("all") or False
-    page = params.get("page") or 1
-    per = params.get("per") or 25
-    message_id = params.get("id")
-    query = '\"\"' if not query else f'\"{query}\"'
-    if message_id:
-        query = f'\"id:{message_id}\"'
-        fetch_all = False
-        page = 1
-        per = 25
-    query = query.lower()
-    payload_init = GET_MESSAGE_PAYLOAD.format(fetch_all, page, per, query)
-    payload = json.dumps({'query': payload_init, 'variables': {}})
-    updated_payload = create_request_payload(payload)
-    result = ob.api_request(data=updated_payload)
+    query = "" if not query else query
+    params.update(query=query)
+    data_query = {"query": GET_MESSAGES_PAYLOAD, "variables": params}
+    result = ob.api_request(data=json.dumps(data_query))
+    return result
+
+
+def get_message_by_id(config, params):
+    ob = KnowB4PhishER(config)
+    params = get_params(params)
+    data_query = {"query": GET_MESSAGE_BY_ID_PAYLOAD, "variables": params}
+    result = ob.api_request(data=json.dumps(data_query))
     return result
 
 
 def update_message(config, params):
     ob = KnowB4PhishER(config)
+    params = get_params(params)
     message_id = params.get('id')
     category = params.get('category')
     status = params.get('status')
@@ -109,75 +113,37 @@ def update_message(config, params):
     severity and attributes.update(severity=SEVERITY_MAPPING[severity])
     if not attributes:
         raise ConnectionError("At least one of the following argument must be provided: Category, Status, Severity")
-    attr_str = json.dumps(attributes)
-    attr_str = attr_str.replace('\"', '')
-    attr_str = attr_str.replace(' ', '')
-    payload = UPDATE_MESSAGE_PAYLOAD.format(message_id, attr_str)
-    final = json.dumps({'query': payload, 'variables': {}})
-    final_req = create_request_payload(final)
-    result = ob.api_request(data=final_req)
-    errors = result.get('data', {}).get('phisherCommentCreate', {}).get('errors', "")
-    if not errors:
-        return {"message": "success"}
-    else:
-        raise ConnectorError(str(errors))
+    data_query = {"query": UPDATE_MESSAGE_PAYLOAD, "variables": {"id": message_id, "payload": attributes}}
+    result = ob.api_request(data=json.dumps(data_query))
+    return result
 
 
 def add_comment(config, params):
     ob = KnowB4PhishER(config)
-    message_id = params.get("id")
-    comment = params.get("comment")
-    payload = ADD_COMMENT_PAYLOAD.format(comment, message_id)
-    final = json.dumps({'query': payload, 'variables': {}})
-    final_str = create_request_payload(final)
-    result = ob.api_request(data=final_str)
-    errors = result.get('data', {}).get('phisherCommentCreate', {}).get('errors', "")
-    if not errors:
-        return {"message": "success"}
-    else:
-        raise ConnectorError(str(errors))
+    params = get_params(params)
+    data_query = {"query": ADD_COMMENT_PAYLOAD, "variables": params}
+    result = ob.api_request(data=json.dumps(data_query))
+    return result
 
 
 def add_tags(config, params):
     ob = KnowB4PhishER(config)
+    params = get_params(params)
     message_id = params.get('id')
     tags = convert_to_list(params.get('tags')) or []
-    parsed_tags = ""
-    for tag in tags:
-        if not parsed_tags:
-            parsed_tags = f'\"{tag}\"'
-        else:
-            parsed_tags = f'{parsed_tags}, \"{tag}\"'
-    payload = ADD_TAGS_PAYLOAD.format(message_id, parsed_tags)
-    final = json.dumps({'query': payload, 'variables': {}})
-    final_req = create_request_payload(final)
-    result = ob.api_request(data=final_req)
-    errors = result.get('data', {}).get('phisherTagsCreate', {}).get('errors', "")
-    if not errors:
-        return {"message": "success"}
-    else:
-        raise ConnectorError(str(errors))
+    data_query = {"query": ADD_TAGS_PAYLOAD, "variables": {"id": message_id, "tags": tags}}
+    result = ob.api_request(data=json.dumps(data_query))
+    return result
 
 
 def remove_tags(config, params):
     ob = KnowB4PhishER(config)
+    params = get_params(params)
     message_id = params.get('id')
-    tags = convert_to_list(params.get('tags'))
-    parsed_tags = ""
-    for tag in tags:
-        if not parsed_tags:
-            parsed_tags = f'\"{tag}\"'
-        else:
-            parsed_tags = f'{parsed_tags}, \"{tag}\"'
-    payload = REMOVE_TAGS_PAYLOAD.format(message_id, parsed_tags)
-    final = json.dumps({'query': payload, 'variables': {}})
-    final_req = create_request_payload(final)
-    result = ob.api_request(data=final_req)
-    errors = result.get('data', {}).get('phisherTagsDelete', {}).get('errors', "")
-    if not errors:
-        return {"message": "success"}
-    else:
-        raise ConnectorError(str(errors))
+    tags = convert_to_list(params.get('tags')) or []
+    data_query = {"query": REMOVE_TAGS_PAYLOAD, "variables": {"id": message_id, "tags": tags}}
+    result = ob.api_request(data=json.dumps(data_query))
+    return result
 
 
 def check_health_ex(config):
@@ -187,6 +153,7 @@ def check_health_ex(config):
 
 operations = {
     "get_message_list": get_message_list,
+    "get_message_by_id": get_message_by_id,
     "update_message": update_message,
     "add_comment": add_comment,
     "add_tags": add_tags,
