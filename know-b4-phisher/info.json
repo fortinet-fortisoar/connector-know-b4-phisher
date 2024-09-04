@@ -7,7 +7,7 @@
   "publisher": "Fortinet",
   "cs_approved": true,
   "cs_compatible": true,
-  "help_online": "",
+  "help_online": "https://github.com/fortinet-fortisoar/connector-know-b4-phisher/blob/release/1.0.1/docs/KnowB4PhishERConnectorDoc.md",
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
   "ingestion_supported": false,
