@@ -1,9 +1,9 @@
 {
   "name": "know-b4-phisher",
   "version": "1.0.1",
-  "label": "KnowB4 PhishER",
+  "label": "KnowBe4 PhishER",
   "category": "Email Security",
-  "description": "KnowB4 PhishER helps your InfoSec and Security Operations team cut through the inbox noise and respond to the most dangerous threats more quickly.",
+  "description": "KnowBe4 PhishER helps your InfoSec and Security Operations team cut through the inbox noise and respond to the most dangerous threats more quickly.",
   "publisher": "Fortinet",
   "cs_approved": true,
   "cs_compatible": true,

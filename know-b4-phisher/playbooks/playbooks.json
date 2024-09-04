@@ -34,7 +34,7 @@
               "description": null,
               "status": null,
               "arguments": {
-                "name": "KnowB4 PhishER",
+                "name": "KnowBe4 PhishER",
                 "config": "''",
                 "params": {
                   "query": "",
@@ -55,10 +55,10 @@
           "triggerLimit": null,
           "description": "Retrieves the detailed list of messages based on the parameters that you have specified.",
           "name": "Get Messages",
-          "tag": "#KnowB4 PhishER",
+          "tag": "#KnowBe4 PhishER",
           "recordTags": [
-            "Know",
-            "know-b4-phisher"
+            "KnowBe4",
+            "know-be4-phisher"
           ],
           "isActive": false,
           "debug": false,
@@ -107,7 +107,7 @@
               "description": null,
               "status": null,
               "arguments": {
-                "name": "KnowB4 PhishER",
+                "name": "KnowBe4 PhishER",
                 "config": "''",
                 "params": {
                   "id": ""
@@ -125,10 +125,10 @@
           "triggerLimit": null,
           "description": "Get message details based on the message ID that you have specified.",
           "name": "Get Message by ID",
-          "tag": "#KnowB4 PhishER",
+          "tag": "#KnowBe4 PhishER",
           "recordTags": [
-            "Know",
-            "know-b4-phisher"
+            "KnowBe4",
+            "know-be4-phisher"
           ],
           "isActive": false,
           "debug": false,
@@ -177,7 +177,7 @@
               "description": null,
               "status": null,
               "arguments": {
-                "name": "KnowB4 PhishER",
+                "name": "KnowBe4 PhishER",
                 "config": "''",
                 "params": {
                   "id": "",
@@ -198,10 +198,10 @@
           "triggerLimit": null,
           "description": "Update a message based on the parameters that you have specified.",
           "name": "Update Message",
-          "tag": "#KnowB4 PhishER",
+          "tag": "#KnowBe4 PhishER",
           "recordTags": [
-            "Know",
-            "know-b4-phisher"
+            "KnowBe4",
+            "know-be4-phisher"
           ],
           "isActive": false,
           "debug": false,
@@ -250,7 +250,7 @@
               "description": null,
               "status": null,
               "arguments": {
-                "name": "KnowB4 PhishER",
+                "name": "KnowBe4 PhishER",
                 "config": "''",
                 "params": {
                   "id": "",
@@ -269,10 +269,10 @@
           "triggerLimit": null,
           "description": "Add comment based on the parameters that you have specified.",
           "name": "Add Comment",
-          "tag": "#KnowB4 PhishER",
+          "tag": "#KnowBe4 PhishER",
           "recordTags": [
-            "Know",
-            "know-b4-phisher"
+            "KnowBe4",
+            "know-be4-phisher"
           ],
           "isActive": false,
           "debug": false,
@@ -321,7 +321,7 @@
               "description": null,
               "status": null,
               "arguments": {
-                "name": "KnowB4 PhishER",
+                "name": "KnowBe4 PhishER",
                 "config": "''",
                 "params": {
                   "id": "",
@@ -340,10 +340,10 @@
           "triggerLimit": null,
           "description": "Add tags to a message based on the parameters that you have specified.",
           "name": "Add Tags",
-          "tag": "#KnowB4 PhishER",
+          "tag": "#KnowBe4 PhishER",
           "recordTags": [
-            "Know",
-            "know-b4-phisher"
+            "KnowBe4",
+            "know-be4-phisher"
           ],
           "isActive": false,
           "debug": false,
@@ -392,7 +392,7 @@
               "description": null,
               "status": null,
               "arguments": {
-                "name": "KnowB4 PhishER",
+                "name": "KnowBe4 PhishER",
                 "config": "''",
                 "params": {
                   "id": "",
@@ -411,10 +411,10 @@
           "triggerLimit": null,
           "description": "Remove tags from a message based on the parameters that you have specified.",
           "name": "Remove Tags",
-          "tag": "#KnowB4 PhishER",
+          "tag": "#KnowBe4 PhishER",
           "recordTags": [
-            "Know",
-            "know-b4-phisher"
+            "KnowBe4",
+            "know-be4-phisher"
           ],
           "isActive": false,
           "debug": false,
@@ -435,12 +435,12 @@
           ]
         }
       ],
-      "name": "Sample - KnowB4 PhishER - 1.0.1",
-      "description": "KnowB4 PhishER helps your InfoSec and Security Operations team cut through the inbox noise and respond to the most dangerous threats more quickly.",
+      "name": "Sample - KnowBe4 PhishER - 1.0.1",
+      "description": "KnowBe4 PhishER helps your InfoSec and Security Operations team cut through the inbox noise and respond to the most dangerous threats more quickly.",
       "visible": true,
       "recordTags": [
-        "Know",
-        "know-b4-phisher"
+        "KnowBe4",
+        "know-be4-phisher"
       ]
     }
   ]
