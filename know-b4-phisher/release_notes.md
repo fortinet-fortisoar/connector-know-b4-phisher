@@ -1,4 +1,4 @@
 #### What's Improved
-- Added Get Message By ID action.
-- Fixed the issue where Get Messages and Update Message action was not working.
-- Removed the Message ID parameter from Get Messages action.
+- Added a new action Get Message By ID.
+- Removed the parameter Message ID from the action Get Messages.
+- Fixed issues with Get Messages and Update Message actions to fetch and update records appropriately.
